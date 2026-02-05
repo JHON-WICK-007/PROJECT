@@ -1,0 +1,112 @@
+/* ===============================
+   ELEGANT BRANCH CARD STYLES
+================================ */
+
+.branch-card {
+  position: relative;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border: 2px solid #E5A500;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image Container */
+.branch-card-image {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.branch-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Content Area */
+.branch-card-content {
+  padding: 28px;
+  background: #000;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.branch-card-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px 0;
+  transition: color 0.3s ease;
+}
+
+.branch-card-subtitle {
+  font-size: 18px;
+  color: #9CA3AF;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effects */
+.branch-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(229, 165, 0, 0.4);
+  border-color: #F5B500;
+}
+
+.branch-card:hover .branch-card-image img {
+  transform: scale(1.1);
+}
+
+.branch-card:hover .branch-card-title {
+  color: #E5A500;
+}
+
+.branch-card:hover .branch-card-subtitle {
+  color: #D1D5DB;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .branch-card-image {
+    height: 220px;
+  }
+
+  .branch-card-title {
+    font-size: 28px;
+  }
+
+  .branch-card-subtitle {
+    font-size: 16px;
+  }
+
+  .branch-card-content {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .branch-card-image {
+    height: 200px;
+  }
+
+  .branch-card-title {
+    font-size: 24px;
+  }
+
+  .branch-card-subtitle {
+    font-size: 14px;
+  }
+
+  .branch-card-content {
+    padding: 20px;
+  }
+}
