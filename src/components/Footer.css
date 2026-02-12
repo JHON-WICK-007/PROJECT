@@ -1,0 +1,302 @@
+/* ===============================
+   SIMPLIFIED FOOTER STYLES
+================================ */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove default focus outline and add custom one */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid rgba(229, 165, 0, 0.6);
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+/* Minimal Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Footer Base Styles */
+footer {
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Link Styles */
+footer a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Input Styles */
+footer input[type="email"] {
+    transition: all 0.3s ease;
+    font-size: 16px;
+    /* Prevents zoom on mobile */
+}
+
+footer input[type="email"]:focus {
+    outline: none;
+}
+
+footer input[type="email"]::placeholder {
+    transition: color 0.3s ease;
+}
+
+/* Button Styles */
+footer button {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Text Selection Styling */
+footer ::selection {
+    background: rgba(229, 165, 0, 0.3);
+    color: white;
+}
+
+footer ::-moz-selection {
+    background: rgba(229, 165, 0, 0.3);
+    color: white;
+}
+
+/* Scrollbar Styling */
+footer::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+footer::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+footer::-webkit-scrollbar-thumb {
+    background: #E5A500;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+footer::-webkit-scrollbar-thumb:hover {
+    background: #D4A017;
+}
+
+/* Back to Top Button Animation */
+.back-to-top {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Success Message Animation */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    20%,
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.subscribe-success {
+    animation: slideUpFade 3s ease-out;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    footer {
+        font-size: 14px;
+    }
+
+    footer h3 {
+        font-size: 1.5rem;
+    }
+
+    footer h4 {
+        font-size: 1rem;
+    }
+
+    .back-to-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 48px;
+        height: 48px;
+    }
+
+    footer input[type="email"] {
+        font-size: 16px;
+        /* Prevents iOS zoom */
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+    footer {
+        font-size: 15px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    footer {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+
+    footer .back-to-top,
+    footer .social-icon,
+    footer form {
+        display: none !important;
+    }
+
+    footer a {
+        color: black !important;
+        text-decoration: underline !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    footer {
+        border: 2px solid white;
+    }
+
+    footer a {
+        text-decoration: underline;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .back-to-top {
+        animation: none !important;
+    }
+}
+
+/* Newsletter Input Styling */
+.newsletter-input {
+    background: transparent !important;
+    border: 2px solid #E5A500;
+    border-radius: 16px;
+    color: white;
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-input:hover {
+    border-color: #E5A500;
+}
+
+.newsletter-input:focus {
+    border-color: #E5A500;
+    box-shadow: none;
+    outline: none;
+}
+
+.newsletter-input::placeholder {
+    color: #6B7280;
+}
+
+/* Remove autofill background */
+.newsletter-input:-webkit-autofill,
+.newsletter-input:-webkit-autofill:hover,
+.newsletter-input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px black inset !important;
+    -webkit-text-fill-color: white !important;
+    border: 2px solid #E5A500 !important;
+}
+
+/* Subscribe Button Styling */
+.subscribe-button {
+    background: #E5A500;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.subscribe-button:hover {
+    background: #F5B500;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 165, 0, 0.4);
+}
+
+.subscribe-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(229, 165, 0, 0.3);
+}
+
+/* Social icon animations */
+.social-icon {
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover::before {
+    opacity: 1;
+}
+
+/* Accessibility Enhancements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus for Keyboard Navigation */
+footer a:focus,
+footer button:focus {
+    z-index: 10;
+}

@@ -1,0 +1,560 @@
+/* ===============================
+   ORDER STATUS PAGE STYLES
+================================ */
+
+/* Container */
+.order-status-container {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 1rem 4rem;
+  background: radial-gradient(circle at top, #111, #000);
+  overflow: hidden;
+}
+
+/* Background Orbs */
+.order-status-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.status-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+}
+
+.status-gradient-orb.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(135deg, #eab308, #f59e0b);
+  top: -200px;
+  right: -200px;
+  animation: float-status-orb 20s ease-in-out infinite;
+}
+
+.status-gradient-orb.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #d4af37, #b8962e);
+  bottom: -150px;
+  left: -150px;
+  animation: float-status-orb 25s ease-in-out infinite reverse;
+}
+
+@keyframes float-status-orb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+}
+
+/* Content */
+.order-status-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.order-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.order-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff, #d1d5db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.order-id {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-family: monospace;
+}
+
+/* Grid Layout */
+.order-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+}
+
+/* Status Card */
+.status-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.status-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-card-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.estimated-time {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(245, 158, 11, 0.1));
+  color: #eab308;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+/* Status Tracker */
+.status-tracker {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.status-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  position: relative;
+  padding: 1.25rem 0;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.status-step.active {
+  opacity: 1;
+}
+
+.status-step.current {
+  opacity: 1;
+}
+
+/* Step Connector */
+.step-connector {
+  position: absolute;
+  left: 22px;
+  top: 60px;
+  width: 2px;
+  height: calc(100% - 20px);
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+.step-connector.completed {
+  background: linear-gradient(180deg, #eab308, #f59e0b);
+}
+
+/* Step Icon */
+.step-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: #6b7280;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.status-step.active .step-icon-wrapper {
+  background: linear-gradient(135deg, #eab308, #f59e0b);
+  border-color: #eab308;
+  color: #000;
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
+}
+
+.status-step.current .step-icon-wrapper {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(234, 179, 8, 0.6);
+  }
+}
+
+/* Step Info */
+.step-info {
+  flex: 1;
+  padding-top: 0.25rem;
+}
+
+.step-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.status-step:not(.active) .step-title {
+  color: #6b7280;
+}
+
+.step-description {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.status-step:not(.active) .step-description {
+  color: #4b5563;
+}
+
+/* Current Status Badge */
+.current-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(245, 158, 11, 0.05));
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  padding: 0.75rem 1.25rem;
+  border-radius: 2rem;
+  margin-top: 1.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #eab308;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.status-text {
+  color: #eab308;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Order Details Card */
+.order-details-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  height: fit-content;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.details-header h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.order-time {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+/* Restaurant Info */
+.restaurant-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.restaurant-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(245, 158, 11, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eab308;
+}
+
+.restaurant-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.restaurant-name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.table-number {
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+/* Order Items */
+.order-items {
+  margin-bottom: 1.5rem;
+}
+
+.items-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #d1d5db;
+  margin-bottom: 0.75rem;
+}
+
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+.order-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(234, 179, 8, 0.2);
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.item-quantity {
+  color: #eab308;
+  font-weight: 600;
+  font-size: 0.875rem;
+  min-width: 28px;
+}
+
+.item-name {
+  color: #e5e7eb;
+  font-size: 0.875rem;
+}
+
+.item-price {
+  color: #d1d5db;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* Order Total */
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(245, 158, 11, 0.05));
+  border-radius: 0.75rem;
+  border: 1px solid rgba(234, 179, 8, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.total-label {
+  color: #d1d5db;
+  font-weight: 500;
+}
+
+.total-amount {
+  color: #eab308;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Action Buttons */
+.order-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #eab308, #f59e0b);
+  color: #000;
+  border: none;
+  box-shadow: 0 10px 30px rgba(234, 179, 8, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(234, 179, 8, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #d1d5db;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #eab308;
+  color: #eab308;
+}
+
+/* Back Section */
+.back-section {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  color: #eab308;
+  gap: 0.75rem;
+}
+
+.back-link svg {
+  transition: transform 0.3s ease;
+}
+
+.back-link:hover svg {
+  transform: translateX(-4px);
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 1024px) {
+  .order-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .order-details-card {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .order-status-container {
+    padding: 6rem 1rem 3rem;
+  }
+
+  .order-title {
+    font-size: 1.75rem;
+  }
+
+  .status-card,
+  .order-details-card {
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .status-card-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .status-step {
+    gap: 1rem;
+  }
+
+  .step-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .step-connector {
+    left: 18px;
+  }
+
+  .order-actions {
+    flex-direction: column;
+  }
+
+  .status-gradient-orb.orb-1,
+  .status-gradient-orb.orb-2 {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Utilities */
+.w-4 { width: 1rem; }
+.w-5 { width: 1.25rem; }
+.w-6 { width: 1.5rem; }
+.h-4 { height: 1rem; }
+.h-5 { height: 1.25rem; }
+.h-6 { height: 1.5rem; }
